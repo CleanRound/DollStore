@@ -1,4 +1,3 @@
-#include <iostream>
 #include "doll.h"
 
 int main() {
