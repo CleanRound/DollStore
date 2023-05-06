@@ -1,5 +1,4 @@
 #include "doll.h"
-#include <iostream>
 
 void Doll::print_doll() const {
     cout << "Name: " << name << "\n";
