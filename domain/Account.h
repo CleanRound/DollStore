@@ -1,7 +1,4 @@
-#include <iostream>
-using namespace std;
-#include <fstream>
-#include <string>
+#include "File.h"
 
 struct Account
 {
@@ -30,7 +27,7 @@ public:
 	{
 		return this->password;
 	}
-	double balance()
+	double getBalance()
 	{
 		return this->balance;
 	}
@@ -47,4 +44,30 @@ public:
 		this->setBalance(0.0);
 	}
 	~Account() = default;
+
+	bool SignUp(File file)
+	{
+		file.open(path, ios::app);
+		if (file.is_open())
+		{
+			string login, password;
+			cout << "Sign up.." << endl;
+			cout << "Enter login: ";
+			cin >> login;
+			this->setLogin(login);
+			cout << "Enter password: ";
+			cin >> password;
+			this->setPassword(password);
+			file << this->getLogin() << " ";
+			file << this->getPassword() << " ";
+			file << this->getBalance() << " ";
+			file << "\n";
+			file.close();
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 };
