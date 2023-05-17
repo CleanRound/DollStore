@@ -60,7 +60,6 @@ public:
 			this->setPassword(password);
 			file << this->getLogin() << " ";
 			file << this->getPassword() << " ";
-			file << this->getBalance() << " ";
 			file << "\n";
 			file.close();
 			return true;
